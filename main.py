@@ -1,6 +1,7 @@
 import random
+import string
 
-
+# creating a password manually
 def concatenate_list(first_word, second_word, punctuation_symbols, number):
     if random.choice([1, 2]) == 1:
         concatenation = list(first_word.upper() + second_word.lower() + number + punctuation_symbols)
@@ -9,26 +10,49 @@ def concatenate_list(first_word, second_word, punctuation_symbols, number):
     return concatenation
 
 
-def assembling_password(first_word, second_word, punctuation_symbols, number):
+def assembling_password_manually(first_word, second_word, punctuation_symbols, number):
     list_after_concatenation = concatenate_list(first_word, second_word, punctuation_symbols, number)
+
+    # creating password
     random.shuffle(list_after_concatenation)
     password = "".join(list_after_concatenation)
+
+    print(f"Your password - {password}")
+
+
+# creating a password automatically
+def creating_password_automatically(length):
+    # initialization
+    lower_symbols = string.ascii_lowercase
+    upper_symbols = string.ascii_uppercase
+    punctuation_symbols = string.punctuation
+    numbers = string.digits
+
+    # concatenate
+    concatenate_symbols = lower_symbols + upper_symbols + punctuation_symbols + numbers
+
+    # creating password
+    temporary_sequence = random.sample(concatenate_symbols, length)
+    password = "".join(temporary_sequence)
+
     print(f"Your password - {password}")
 
 if __name__ == '__main__':
     choice = None
     while choice != "0":
-        print """
+        print ("""
         0 - Exit
         1 - Create a password manually
         2 - Сreate a password automatically
-        """
-        choice = input("Сhoose one of the options:")
+        """)
+        choice = input("Сhoose one of the options : ")
         if choice == "1":
-            first_word = input("Enter your first word:")
-            second_word = input("Enter your second word:")
-            number = int(input("Enter your number:"))
-            punctuation_symbols = input("Enter any punctuation symbols:")
-            assembling_password(first_word, second_word, punctuation_symbols, number)
-
+            first_word = input("Enter your first word : ")
+            second_word = input("Enter your second word : ")
+            number = input("Enter your number : ")
+            punctuation_symbols = input("Enter any punctuation symbols : ")
+            assembling_password_manually(first_word, second_word, punctuation_symbols, number)
+        elif choice == "2":
+            length = int(input("Enter length your password : "))
+            creating_password_automatically(length)
 
