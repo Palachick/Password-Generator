@@ -13,5 +13,5 @@ You can choose : create your password manually or automatically
 * password is generated automatically
 
 ### I mastered :
-* work with string library
+* work with string module
 * work with lists
