@@ -27,7 +27,7 @@ def assembling_password_manually(first_word, second_word, punctuation_symbols, n
 
 # creating a password automatically
 def creating_password_automatically(length):
-    """Create a password using strings and random libraries"""
+    """Create a password using strings and random modules"""
 
     # initialization
     lower_symbols = string.ascii_lowercase
