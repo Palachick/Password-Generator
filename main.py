@@ -1,8 +1,11 @@
 import random
 import string
 
+
 # creating a password manually
 def concatenate_list(first_word, second_word, punctuation_symbols, number):
+    """Concatenate and conversion in list"""
+
     if random.choice([1, 2]) == 1:
         concatenation = list(first_word.upper() + second_word.lower() + number + punctuation_symbols)
     else:
@@ -11,6 +14,8 @@ def concatenate_list(first_word, second_word, punctuation_symbols, number):
 
 
 def assembling_password_manually(first_word, second_word, punctuation_symbols, number):
+    """Shuffling and assembling the password"""
+
     list_after_concatenation = concatenate_list(first_word, second_word, punctuation_symbols, number)
 
     # creating password
@@ -22,6 +27,8 @@ def assembling_password_manually(first_word, second_word, punctuation_symbols, n
 
 # creating a password automatically
 def creating_password_automatically(length):
+    """Create a password using strings and random libraries"""
+
     # initialization
     lower_symbols = string.ascii_lowercase
     upper_symbols = string.ascii_uppercase
@@ -37,15 +44,18 @@ def creating_password_automatically(length):
 
     print(f"Your password - {password}")
 
+
 if __name__ == '__main__':
     choice = None
     while choice != "0":
+        # creating menu
         print ("""
         0 - Exit
         1 - Create a password manually
         2 - Сreate a password automatically
         """)
         choice = input("Сhoose one of the options : ")
+        # input processing
         if choice == "1":
             first_word = input("Enter your first word : ")
             second_word = input("Enter your second word : ")
